@@ -1,0 +1,63 @@
+server:
+  port: 8080
+  #设置session时延
+  servlet:
+    session:
+      timeout: 1800s
+        #设置前缀
+          #context-path: /school
+mybatis:
+  type-aliases-package: com.frode.kaisa.domain
+#设置数据库相关  #开发时关闭缓存,不然没法看到实时页面  最后设为true  #redis配置
+spring:
+  datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/vega?useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 1234
+  thymeleaf:
+    encoding: utf-8
+    mode: HTML
+    servlet:
+      content-type:  text/html
+    cache: false
+    prefix: classpath:/static/
+  redis:
+      host: localhost
+      port: 6379
+      password:
+        # 连接超时时间（毫秒）
+      timeout: 10000ms
+      jedis:
+        pool:
+          max-idle: 10
+          min-idle: 8
+          max-active: 100
+          max-wait: -1ms
+  cache:
+    type: redis
+    #日志支持
+logging:
+#  level: debug
+  file: kaisa.log
+  path: /log/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
