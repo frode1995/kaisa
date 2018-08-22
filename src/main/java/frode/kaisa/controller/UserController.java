@@ -1,6 +1,8 @@
 package frode.kaisa.controller;
 
 import frode.kaisa.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,8 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
@@ -29,6 +33,7 @@ public class UserController {
         Map<String, Object> modelMap=new HashMap<>();
         if(userService.valLogin(userId,password)){
             //sessionService.saveSession(request);
+            logger.info(userId+"进行登录操作！");
             modelMap.put("code",1);//1成功 2失败
             modelMap.put("msg","登录成功");
             return modelMap;
