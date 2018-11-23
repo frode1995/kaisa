@@ -54,4 +54,6 @@ public interface UserDao {
     })//@Select 是查询类的注解，所有的查询均使用这个
     @Select("select * from user where username = #{username}")//从教师表中查询tecId//错过
     UserDO getUserDOByUserName(@Param("username") String username);
+
+
 }

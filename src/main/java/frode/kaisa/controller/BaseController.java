@@ -25,4 +25,14 @@ public class BaseController {
     public String openIndex(){
         return "index";
     }
+
+    //废弃
+    @Deprecated
+    @RequestMapping(value = "/first", method = { RequestMethod.POST,RequestMethod.GET })
+    public String openFirst(){
+        return "/jsp/first";
+    }
+
+
+
 }
